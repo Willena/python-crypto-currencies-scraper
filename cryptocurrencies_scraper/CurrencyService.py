@@ -4,7 +4,7 @@ import requests
 
 
 class Currency(object):
-    __slots__ = ('symbol', 'name', 'valueUSD', 'valueBTC', 'lastUpdate', 'changes', 'source')
+    __slots__ = ('symbol', 'name', 'valueUSD', 'valueBTC', 'lastUpdate', 'changes', 'source', 'volume_24h_usd', 'market_cap_usd')
 
     def __init__(self):
         self.symbol = ""
@@ -12,6 +12,8 @@ class Currency(object):
         self.valueUSD = None
         self.valueBTC = None
         self.lastUpdate = None
+        self.volume_24h_usd = None
+        self.market_cap_usd = None
         self.source = ""
         self.changes = {
             '7d': None,
@@ -31,6 +33,8 @@ class Currency(object):
         if "price_btc" in json_data.keys():
             new_currency.valueBTC = float(json_data['price_btc'])
         new_currency.valueUSD = float(json_data['price_usd'])
+        new_currency.volume_24h_usd = float(json_data['24h_volume_usd'])
+        new_currency.market_cap_usd = float(json_data['market_cap_usd'])
         # new_currency.lastUpdate = datetime.fromtimestamp(int(json_data['last_updated'])).strftime('%d-%m-%Y %H:%M:%S')
         new_currency.lastUpdate = int(json_data['last_updated'])
         new_currency.changes = {
