@@ -10,7 +10,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='cryptocurrencies_scraper',  # Required
-    version='0.0.2',  # Required
+    version='0.0.3',  # Required
     description='A simple scrapper that uses coin360.com and coinmarketcap.com apis to populate an instant local database',
     # Optional
     long_description=long_description,  # Optional
