@@ -36,7 +36,7 @@ class MySourceForCurrencies(CurrentPriceInterface):
     NAME = "mysource.com"
 
     @classmethod
-    def get_instance(cls) -> 'CurrenciesFromCoinMarketCap':
+    def get_instance(cls) -> 'MySourceForCurrencies':
         if cls.instance is None:
             cls.instance = MySourceForCurrencies()
         return cls.instance
